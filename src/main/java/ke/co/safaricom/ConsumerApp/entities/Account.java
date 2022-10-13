@@ -10,9 +10,9 @@ public class Account {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 
     private Long id;
-    private  String account_name;
-    private  String account_no;
-    private String account_type;
+    private  String accountName;
+    private  String accountNo;
+    private String accountType;
 
     public Long getId() {
         return id;
@@ -22,27 +22,27 @@ public class Account {
         this.id = id;
     }
 
-    public String getAccount_name() {
-        return account_name;
+    public String getAccountName() {
+        return accountName;
     }
 
-    public void setAccount_name(String account_name) {
-        this.account_name = account_name;
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
-    public String getAccount_no() {
-        return account_no;
+    public String getAccountNo() {
+        return accountNo;
     }
 
-    public void setAccount_no(String account_no) {
-        this.account_no = account_no;
+    public void setAccountNo(String accountNo) {
+        this.accountNo = accountNo;
     }
 
-    public String getAccount_type() {
-        return account_type;
+    public String getAccountType() {
+        return accountType;
     }
 
-    public void setAccount_type(String account_type) {
-        this.account_type = account_type;
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 }

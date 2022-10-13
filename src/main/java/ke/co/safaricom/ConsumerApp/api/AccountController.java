@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "account")
+@RequestMapping(value = "/account")
 public class AccountController {
 
     private final AccountService accountService;
@@ -30,7 +30,7 @@ public class AccountController {
         var account = accountService.getAccountById(id);
         return ResponseEntity.of(account);
     }
-    @GetMapping("/accounts")
+    @GetMapping
     public List<Account> getAllAccounts( ) {
         return accountService.getAllById();
     }

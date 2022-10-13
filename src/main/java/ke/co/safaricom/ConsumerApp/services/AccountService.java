@@ -19,8 +19,8 @@ public class AccountService {
     }
 public Account create(CreateAccountRequest createAccountRequest){
         Account account=new Account();
-        account.setAccount_name(createAccountRequest.getAccount_name());
-        account.setAccount_no(createAccountRequest.getAccount_no());
+        account.setAccountName(createAccountRequest.getAccountName());
+        account.setAccountNo(createAccountRequest.getAccountNo());
         accountRepository.save(account);
 
     return account;
@@ -28,8 +28,8 @@ public Account create(CreateAccountRequest createAccountRequest){
 public Optional <Account> updateAccount(Long accountId, AccountUpdateRequest accountUpdateRequest){
         var accountTOUpdate= this.accountRepository.findById(accountId);
         accountTOUpdate.ifPresent(a->{
-            a.setAccount_name(accountUpdateRequest.getAccount_name());
-            a.setAccount_type(accountUpdateRequest.getAccount_type());
+            a.setAccountName(accountUpdateRequest.getAccountName());
+            a.setAccountType(accountUpdateRequest.getAccountType());
         });
         return accountTOUpdate;
 }
@@ -40,8 +40,8 @@ public Optional <Account> getAccountById(Long accountId){
 public List<Account> getAllById(){
         return accountRepository.findAll();
 }
-public  List<Account> getAllByTitle(String title){
-        return accountRepository.findByTitle(title);
+public  Account getAllByName(String title){
+        return accountRepository.findByAccountName(title);
 }
 public void deleteById(Long Id){
         accountRepository.deleteById(Id);

@@ -6,24 +6,24 @@ import javax.validation.constraints.NotBlank;
 public class CreateAccountRequest {
 
     @NotBlank
-    private String account_name;
+    private String accountName;
 
     @NotBlank
-    private  String account_no;
+    private  String accountNo;
 
-    public String getAccount_name() {
-        return account_name;
+    public String getAccountName() {
+        return accountName;
     }
 
-    public void setAccount_name(String account_name) {
-        this.account_name = account_name;
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
-    public String getAccount_no() {
-        return account_no;
+    public String getAccountNo() {
+        return accountNo;
     }
 
-    public void setAccount_no(String account_no) {
-        this.account_no = account_no;
+    public void setAccountNo(String accountNo) {
+        this.accountNo = accountNo;
     }
 }

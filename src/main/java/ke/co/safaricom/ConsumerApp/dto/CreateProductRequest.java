@@ -4,13 +4,13 @@ import javax.validation.constraints.NotBlank;
 
 public class CreateProductRequest {
     @NotBlank
-    private String product_name;
+    private String productName;
 
-    public String getProduct_name() {
-        return product_name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 }
