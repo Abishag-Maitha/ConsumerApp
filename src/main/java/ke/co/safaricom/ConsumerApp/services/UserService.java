@@ -2,6 +2,7 @@ package ke.co.safaricom.ConsumerApp.services;
 
 import ke.co.safaricom.ConsumerApp.dto.CreateProductRequest;
 import ke.co.safaricom.ConsumerApp.dto.CreateUserRequest;
+import ke.co.safaricom.ConsumerApp.dto.UserUpdateRequest;
 import ke.co.safaricom.ConsumerApp.entities.Product;
 import ke.co.safaricom.ConsumerApp.entities.User;
 import ke.co.safaricom.ConsumerApp.repositories.UserRepository;
@@ -23,6 +24,16 @@ public class UserService {
         user.setPassword(createUserRequest.getPassword());
         userRepository.save(user);
         return user;
+    }
+    public Optional<User> updateUser(Long userId, UserUpdateRequest userUpdateRequest){
+      var userToUpdate=this.userRepository.findById(userId);
+      userToUpdate.ifPresent(user -> {
+          user.setUsername(userUpdateRequest.getUsername());
+          user.setPassword(userUpdateRequest.getPassword());
+          user.setEmail(userUpdateRequest.getEmail());
+          user.setPhoneNo(userUpdateRequest.getPhoneNo());
+      });
+      return userToUpdate;
     }
     public Optional<User> getUserById(Long userId){
         return userRepository.findById(userId);

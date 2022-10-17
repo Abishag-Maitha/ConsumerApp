@@ -1,6 +1,9 @@
 package ke.co.safaricom.ConsumerApp.services;
 
+import ke.co.safaricom.ConsumerApp.dto.AccountUpdateRequest;
 import ke.co.safaricom.ConsumerApp.dto.CreateProductRequest;
+import ke.co.safaricom.ConsumerApp.dto.ProductUpdateRequest;
+import ke.co.safaricom.ConsumerApp.entities.Account;
 import ke.co.safaricom.ConsumerApp.entities.Product;
 import ke.co.safaricom.ConsumerApp.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,13 @@ public class ProductService {
         product.setProductName(createProductRequest.getProductName());
         productRepository.save(product);
         return product;
+    }
+    public Optional<Product> updateProduct(Long prodId, ProductUpdateRequest productUpdateRequest){
+        var productToUpdate=this.productRepository.findById(prodId);
+        productToUpdate.ifPresent(p->{
+            p.setProductName(productUpdateRequest.getProductName());
+        });
+        return productToUpdate;
     }
     public Optional<Product> getProductById(Long productId){
         return productRepository.findById(productId);
